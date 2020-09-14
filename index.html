@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
   <title>Choose Your Avenger Team !!</title>
 
   <!-- CSS  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="css/style.css" type="text/css" rel="stylesheet"/>
-  <link href="assets/css/dropdown.css" type="text/css" rel="stylesheet"/>
-  <link href="https://i.ytimg.com/vi/hxOcygQLW44/maxresdefault.jpg"/>
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" />
+  <link href="assets/css/dropdown.css" type="text/css" rel="stylesheet" />
 </head>
+
 <body background="https://i.ytimg.com/vi/hxOcygQLW44/maxresdefault.jpg">
   <ul class="collapsible">
     <li>
@@ -18,39 +19,24 @@
         <span>
           <div class="img-wrap">
             <span class="close">&times;</span>
-            <img
-              src="http://lorempixel.com/output/food-q-c-190-140-4.jpg"
-              data-id="121"
-            />
+            <img src="http://lorempixel.com/output/food-q-c-190-140-4.jpg" data-id="121" />
           </div>
 
           <div class="img-wrap">
             <span class="close">&times;</span>
-            <img
-              src="http://lorempixel.com/output/sports-q-c-190-140-1.jpg"
-              data-id="122"
-            />
+            <img src="http://lorempixel.com/output/sports-q-c-190-140-1.jpg" data-id="122" />
           </div>
           <div class="img-wrap">
             <span class="close">&times;</span>
-            <img
-              src="http://lorempixel.com/output/animals-q-c-190-140-7.jpg"
-              data-id="123"
-            />
+            <img src="http://lorempixel.com/output/animals-q-c-190-140-7.jpg" data-id="123" />
           </div>
           <div class="img-wrap">
             <span class="close">&times;</span>
-            <img
-              src="http://lorempixel.com/output/cats-q-c-190-140-10.jpg"
-              data-id="124"
-            />
+            <img src="http://lorempixel.com/output/cats-q-c-190-140-10.jpg" data-id="124" />
           </div>
           <div class="img-wrap">
             <span class="close">&times;</span>
-            <img
-              src="http://lorempixel.com/output/animals-q-c-190-140-4.jpg"
-              data-id="125"
-            />
+            <img src="http://lorempixel.com/output/animals-q-c-190-140-4.jpg" data-id="125" />
           </div>
           <button class="fill-team" id="fill-team-button">Fill Team</button>
           <button class="delete-team" id="delete-team-button">
@@ -63,29 +49,34 @@
       </div>
     </li>
   </ul>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-  <div id="index-banner">
-    <div class="container">
-      <button btn="Character">Random Character</div>
-      <br><br>
-      
-      <div class="row center">
-        <h5 class="header">Build your Team !!!</h5>
-      </div>
+  <div class="section no-pad-bot" id="index-banner"></div>
+  <div class="row center">
+    <h1 class="header">AVENGERS ASSEMBLE !!</h1>
+      <form>
+        <input type="text" id="inputSearch" placeholder="Search for a Character" /> <button id="btnSearch"
+          type="button">Search</button> <button id="btnRandom" type="button">Random</button>
+      </form>
     </div>
-   <div class="container">
+    <div class="container">
       <div class="row">
-        <div class="col s6" id="marvelTitle"><h2>Character Selected</h2></div>
-          <div class="col s6" id="wikiTitle"><h2>Wikipedia</h2></div>
+        <div class="col s6" id="marvelTitle">
+          <h2>Character Selected</h2>
+        </div>
+        <div class="col s6" id="wikiTitle">
+          <h2>Wikipedia</h2>
+        </div>
       </div>
       <div class="row">
         <div class="col s6" id="marvelOutput"></div>
         <div class="col s6" id="wikiOutput"></div>
+      </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="assets/js/teamDisplay.js"></script>
+  <script src="./assets/js/keys.js"></script>
+  <script src="./assets/js/apiCalls.js"></script>
 </body>
+
 </html>
