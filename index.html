@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=, initial-scale=1.0">
-  <title>Document</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Choose Your Avenger Team !!</title>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="css/style.css" type="text/css" rel="stylesheet"/>
+  <link href="https://i.ytimg.com/vi/hxOcygQLW44/maxresdefault.jpg"/>
 </head>
-<body>
+<body background="https://i.ytimg.com/vi/hxOcygQLW44/maxresdefault.jpg">
+  <nav class="navigation" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" class="brand-logo"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Your Team !</a></li>
+        </ul>
+    </div>
+    <div class="row center">
+      <h1 class="header">AVENGERS ASSEMBLE !!</h1>
+    <input type="text" id="inputSearch" placeholder="Choose Your Avenger"/><button id="btnSearch"
+  type="button">Avenger</button>
+    </div>
+  </nav>
+  <div id="index-banner">
+    <div class="container">
+      <button btn="Character">Random Character</div>
+      <br><br>
+      
+      <div class="row center">
+        <h5 class="header">Build your Team !!!</h5>
+      </div>
+    </div>
   
+
+  </div>
+
+
+  <div class="container">
+      <div class="row">
+        <div class="col s6" id="marvelTitle"><h2>Character Selected</h2></div>
+          <div class="col s6" id="wikiTitle"><h2>Wikipedia</h2></div>
+      </div>
+      <div class="row">
+        <div class="col s6" id="marvelOutput"></div>
+        <div class="col s6" id="wikiOutput"></div>
+    </div>
+  </div>
+  <script src="js/init.js"></script>
 </body>
 </html>
