@@ -8,21 +8,63 @@
   <!-- CSS  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="css/style.css" type="text/css" rel="stylesheet"/>
+  <link href="assets/css/dropdown.css" type="text/css" rel="stylesheet"/>
   <link href="https://i.ytimg.com/vi/hxOcygQLW44/maxresdefault.jpg"/>
 </head>
 <body background="https://i.ytimg.com/vi/hxOcygQLW44/maxresdefault.jpg">
-  <nav class="navigation" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" class="brand-logo"></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Your Team !</a></li>
-        </ul>
-    </div>
-    <div class="row center">
-      <h1 class="header">AVENGERS ASSEMBLE !!</h1>
-    <input type="text" id="inputSearch" placeholder="Choose Your Avenger"/><button id="btnSearch"
-  type="button">Avenger</button>
-    </div>
-  </nav>
+  <ul class="collapsible">
+    <li>
+      <div class="collapsible-body">
+        <span>
+          <div class="img-wrap">
+            <span class="close">&times;</span>
+            <img
+              src="http://lorempixel.com/output/food-q-c-190-140-4.jpg"
+              data-id="121"
+            />
+          </div>
+
+          <div class="img-wrap">
+            <span class="close">&times;</span>
+            <img
+              src="http://lorempixel.com/output/sports-q-c-190-140-1.jpg"
+              data-id="122"
+            />
+          </div>
+          <div class="img-wrap">
+            <span class="close">&times;</span>
+            <img
+              src="http://lorempixel.com/output/animals-q-c-190-140-7.jpg"
+              data-id="123"
+            />
+          </div>
+          <div class="img-wrap">
+            <span class="close">&times;</span>
+            <img
+              src="http://lorempixel.com/output/cats-q-c-190-140-10.jpg"
+              data-id="124"
+            />
+          </div>
+          <div class="img-wrap">
+            <span class="close">&times;</span>
+            <img
+              src="http://lorempixel.com/output/animals-q-c-190-140-4.jpg"
+              data-id="125"
+            />
+          </div>
+          <button class="fill-team" id="fill-team-button">Fill Team</button>
+          <button class="delete-team" id="delete-team-button">
+            Delete Team
+          </button>
+        </span>
+      </div>
+      <div class="collapsible-header" style="width: 20%; text-align: center">
+        <i class="material-icons">filter_drama</i>Show Team
+      </div>
+    </li>
+  </ul>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
   <div id="index-banner">
     <div class="container">
       <button btn="Character">Random Character</div>
@@ -32,12 +74,7 @@
         <h5 class="header">Build your Team !!!</h5>
       </div>
     </div>
-  
-
-  </div>
-
-
-  <div class="container">
+   <div class="container">
       <div class="row">
         <div class="col s6" id="marvelTitle"><h2>Character Selected</h2></div>
           <div class="col s6" id="wikiTitle"><h2>Wikipedia</h2></div>
@@ -47,6 +84,8 @@
         <div class="col s6" id="wikiOutput"></div>
     </div>
   </div>
-  <script src="js/init.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="assets/js/teamDisplay.js"></script>
 </body>
 </html>
