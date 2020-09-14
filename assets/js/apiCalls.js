@@ -5,17 +5,17 @@ let wikiOutput = $("#wikiOutput");
 let characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 let displayedCharacter = {
-  "id" : "",
-  "name" : "",
-  "image" : ""
+  "id": "",
+  "name": "",
+  "image": ""
 }
 
 // Clear out the displayedCharacter object
-let clearDisplayedCharacter = function() {
+let clearDisplayedCharacter = function () {
   displayedCharacter = {
-    "id" : "",
-    "name" : "",
-    "image" : ""
+    "id": "",
+    "name": "",
+    "image": ""
   }
 };
 
@@ -32,8 +32,8 @@ let searchCharacter = function () {
       displayMarvelCarouselResults(characterListObj);
     });
 
-    // Clear the displayed character information
-    clearDisplayedCharacter();
+  // Clear the displayed character information
+  clearDisplayedCharacter();
 };
 
 // Function that will display the search results from Marvel as a Materialize image carousel
@@ -49,9 +49,9 @@ let displayMarvelCarouselResults = function (characterListObj) {
       "image": results[i].thumbnail.path
     };
 
-    resultList += '<a class="carousel-item" id="' + results[i].id + 
-    '" href=\'javascript:displayCharacter(' + JSON.stringify(charObj) + 
-    ')\'><img src="' + results[i].thumbnail.path + '/standard_large.jpg">' + results[i].name + '</a>\n';
+    resultList += '<a class="carousel-item" id="' + results[i].id +
+      '" href=\'javascript:displayCharacter(' + JSON.stringify(charObj) +
+      ')\'><img src="' + results[i].thumbnail.path + '/standard_large.jpg">' + results[i].name + '</a>\n';
   }
   resultList += '</div>\n';
 
@@ -104,9 +104,17 @@ let displayWikiResults = function (wikiListObj) {
 
 // Display the wikipedia contents
 let displayWiki = function (event) {
-  let snippetNum = parseInt(event.target.getAttribute("snippetNum"));
-
-  wikiOutput.html(snippets[snippetNum]);
+  // Parse text of Wiki page
+  fetch("https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=" + event.target.textContent + "&utf8=&format=json&disabletoc=true&mobileformat=true&section=0")
+    .then(function (Response) {
+      return Response.json();
+    })
+    .then(function (wikiParseObj) {
+      console.log(wikiParseObj.parse)
+      wikiOutput.html(wikiParseObj.parse.text["*"] // Get text
+        .replace('src="//', 'src="https://') // Make sure images display
+        .replace(/a href="\//g, 'a target="_blank" href="https://en.wikipedia.org/')); // Make links open in new browser tab/window
+    });
 };
 
 // Fetch a random character from Marvel API
@@ -128,7 +136,7 @@ let randomCharacter = function (callbackFunc) {
 
       // Select a random character from that returned list
       let charIndex = Math.floor(Math.random() * results.length);
-      
+
       let charObj = {
         "id": results[charIndex].id,
         "name": results[charIndex].name,
@@ -143,6 +151,6 @@ let randomCharacter = function (callbackFunc) {
 // Event listeners
 
 $("#btnSearch").click(searchCharacter);
-$("#btnRandom").click(function() {
+$("#btnRandom").click(function () {
   randomCharacter(displayCharacter);
 });
