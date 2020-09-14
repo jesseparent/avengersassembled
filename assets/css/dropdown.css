@@ -1,0 +1,76 @@
+.icon-block {
+    padding: 0 15px;
+  }
+  .icon-block .material-icons {
+      font-size: inherit;
+  }
+  
+  /* Container needed to position the button. Adjust the width as needed */
+  .container {
+    position: relative;
+    width: 50%;
+  }
+  
+  .img-wrap {
+    position: relative;
+    display: inline-block;
+    border: 1px red solid;
+    font-size: 0;
+  }
+  .img-wrap .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+    background-color: #FFF;
+    padding: 5px 2px 2px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: .2;
+    text-align: center;
+    font-size: 22px;
+    line-height: 10px;
+    border-radius: 50%;
+  }
+  .img-wrap:hover .close {
+    opacity: 1;
+  }
+  
+  .fill-team {
+      background-color: #2A75B3;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+  
+    .delete-team {
+      background-color: #760C10;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+  
+    .button {
+      transition-duration: 0.4s;
+    }
+    
+    .delete-team:hover {
+      background-color: #D7BB2B;
+      color: white;
+    }
+  
+    .fill-team:hover {
+      background-color: #C31D10;
+      color: white;
+    }
