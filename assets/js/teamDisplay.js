@@ -13,23 +13,24 @@ function clearLocalStorage() {
   localStorage.clear();
 }
 
-var marvel0 = document.getElementById("0")
-var marvel1 = document.getElementById("1")
-var marvel2 = document.getElementById("2")
-var marvel3 = document.getElementById("3")
-var marvel4 = document.getElementById("4")
+var marvelTeamImages = []
+marvelTeamImages.push(document.getElementById("0"))
+marvelTeamImages.push(document.getElementById("1"))
+marvelTeamImages.push(document.getElementById("2"))
+marvelTeamImages.push(document.getElementById("3"))
+marvelTeamImages.push(document.getElementById("4"))
 var myTeam = []
 
 
 
-var addCharacter = function () {
+var addCharacter = function (charactertodisplay) {
   var characterObject = {
-    "id": displayedCharacter.id, 
-    "name": displayedCharacter.name,
-    "image": displayedCharacter.image
+    "id": charactertodisplay.id, 
+    "name": charactertodisplay.name,
+    "image": charactertodisplay.image
   };
   myTeam.push(characterObject);
-
+  marvelTeamImages[myTeam.length-1].src = characterObject.image + "/standard_large.jpg"
 
   //place character in array 
   //display character in dropdown
@@ -46,12 +47,17 @@ var deleteCharacter = function () {
 
 var fillTeam = function () {
   //for loop
-  for(var i = 0; i < myTeam.length; i++) {
-
+  for(var i = myTeam.length-1; i < 5; i++) {
+randomCharacter(addCharacter);
+console.log(i);
   }
 };
+
 var deleteTeam = function () {
   //replace all characters from array with placeholders
 };
 
-$("#btnSelect").click(addCharacter);
+$("#btnSelect").click(function(){
+  addCharacter(displayedCharacter)
+});
+$("#fill-team-button").click(fillTeam);
