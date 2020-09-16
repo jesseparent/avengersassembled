@@ -2,8 +2,6 @@ let searchInput = $("#inputSearch");
 let marvelOutput = $("#marvelOutput");
 let wikiOutput = $("#wikiOutput");
 
-let characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
 let displayedCharacter = {
   "id": "",
   "name": "",
@@ -72,6 +70,7 @@ let displayMarvelCarouselResults = function (characterListObj) {
   $('.carousel').carousel();
 };
 
+let searchedList = [];
 // Display the character information in the Marvel area and fetch results from Wikipedia
 let displayCharacter = function (charObj) {
   // Display loading spinner
@@ -131,43 +130,13 @@ let displayWikiResults = function (wikiListObj) {
     });
 };
 
-// Fetch a random character from Marvel API
+// Fetch a random character from an array of verified Avengers characters
 // Pass in a function that will be called with the character object as a parameter after the character has been selected
 let randomCharacter = function (callbackFunc) {
-  // Start with a random letter from the alphabet
-  let alphaIndex = Math.floor(Math.random() * characters.length);
+  // Select random character
+  let randIndex = Math.floor(Math.random() * randomCharacters.length);
 
-  // Get a list of characters that start with that letter
-  fetch("https://gateway.marvel.com/v1/public/characters?ts=" + marvelApiObj.ts // Timestamp
-    + "&hash=" + marvelApiObj.hash // MD5 Hash of timestamp, private key, and public key
-    + "&apikey=" + marvelApiObj.apiKey // Public key
-    + "&nameStartsWith=" + characters[alphaIndex]) // Value entered by user
-    .then(function (Response) {
-      if (Response.ok) {
-        return Response.json();
-      }
-      else {
-        throw "Error";
-      }
-    })
-    .then(function (characterListObj) {
-      let results = characterListObj.data.results;
-
-      // Select a random character from that returned list
-      let charIndex = Math.floor(Math.random() * results.length);
-
-      let charObj = {
-        "id": results[charIndex].id,
-        "name": results[charIndex].name,
-        "image": results[charIndex].thumbnail.path
-      };
-
-      // Call function to display that character
-      callbackFunc(charObj);
-    })
-    .catch(function (error) {
-      marvelOutput.html("<h1>Error Occurred Searching for Character</h1>")
-    });
+  callbackFunc(randomCharacters[randIndex]);
 };
 
 // Event listeners
