@@ -26,14 +26,24 @@ let searchCharacter = function () {
     + "&apikey=" + marvelApiObj.apiKey // Public key
     + "&nameStartsWith=" + searchInput.val()) // Value entered by user
     .then(function (Response) {
-      return Response.json();
+      if (Response.ok) {
+        return Response.json();
+      }
+      else {
+        throw "Error";
+      }
     })
     .then(function (characterListObj) {
       displayMarvelCarouselResults(characterListObj);
+    })
+    .catch(function (error) {
+      marvelOutput.html("<h1>Error Occurred Searching for Character</h1>")
     });
 
   // Clear the displayed character information
   clearDisplayedCharacter();
+  marvelOutput.html('<img src="./assets/images/spinner.gif" />'); // Display loading spinner
+  wikiOutput.html('');
 };
 
 // Function that will display the search results from Marvel as a Materialize image carousel
@@ -64,13 +74,24 @@ let displayMarvelCarouselResults = function (characterListObj) {
 
 // Display the character information in the Marvel area and fetch results from Wikipedia
 let displayCharacter = function (charObj) {
+  // Display loading spinner
+  wikiOutput.html('<img src="./assets/images/spinner.gif" />');
+  
   // Get wikipedia results
-  fetch("https://en.wikipedia.org/w/api.php?origin=*&action=query&list=search&srsearch=" + charObj.name + "&utf8=&format=json")
+  fetch("https://en.wikipedia.org/w/api.php?origin=*&action=query&list=search&srsearch=" + charObj.name + "%20Marvel%20Comics&utf8=&format=json")
     .then(function (Response) {
-      return Response.json();
+      if (Response.ok) {
+        return Response.json();
+      }
+      else {
+        throw "Error";
+      }
     })
     .then(function (wikiListObj) {
       displayWikiResults(wikiListObj);
+    })
+    .catch(function (error) {
+      wikiOutput.html("<h1>Error Occurred Searching for Character</h1>")
     });
 
   // Display the character information
@@ -83,37 +104,30 @@ let displayCharacter = function (charObj) {
   displayedCharacter.image = charObj.image;
 };
 
-let snippets = [];
-
-// Display the list of wiki results
+// Display the wikipedia contents
 let displayWikiResults = function (wikiListObj) {
-  snippets = [];
   let results = wikiListObj.query.search;
 
-  let resultList = '<ul id="searchWikiResults">\n';
-  for (let i = 0; i < results.length; i++) {
-    resultList += '<li id="page-' + results[i].pageid + '" snippetNum="' + i + '">' + results[i].title + '</li>\n';
-    snippets.push(results[i].snippet);
-  }
-  resultList += '</ul>\n';
+  // Automatically search wiki for results of first item
+  let title = results[0].title;
 
-  wikiOutput.html(resultList);
-
-  $("#searchWikiResults").click(displayWiki);
-};
-
-// Display the wikipedia contents
-let displayWiki = function (event) {
   // Parse text of Wiki page
-  fetch("https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=" + event.target.textContent + "&utf8=&format=json&disabletoc=true&mobileformat=true&section=0")
+  fetch("https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=" + title + "&utf8=&format=json&disabletoc=true&mobileformat=true&section=0")
     .then(function (Response) {
-      return Response.json();
+      if (Response.ok) {
+        return Response.json();
+      }
+      else {
+        throw "Error";
+      }
     })
     .then(function (wikiParseObj) {
-      console.log(wikiParseObj.parse)
       wikiOutput.html(wikiParseObj.parse.text["*"] // Get text
         .replace('src="//', 'src="https://') // Make sure images display
         .replace(/a href="\//g, 'a target="_blank" href="https://en.wikipedia.org/')); // Make links open in new browser tab/window
+    })
+    .catch(function (error) {
+      wikiOutput.html("<h1>Error Occurred Searching for Character</h1>")
     });
 };
 
@@ -129,7 +143,12 @@ let randomCharacter = function (callbackFunc) {
     + "&apikey=" + marvelApiObj.apiKey // Public key
     + "&nameStartsWith=" + characters[alphaIndex]) // Value entered by user
     .then(function (Response) {
-      return Response.json();
+      if (Response.ok) {
+        return Response.json();
+      }
+      else {
+        throw "Error";
+      }
     })
     .then(function (characterListObj) {
       let results = characterListObj.data.results;
@@ -145,6 +164,9 @@ let randomCharacter = function (callbackFunc) {
 
       // Call function to display that character
       callbackFunc(charObj);
+    })
+    .catch(function (error) {
+      marvelOutput.html("<h1>Error Occurred Searching for Character</h1>")
     });
 };
 
