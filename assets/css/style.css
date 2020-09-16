@@ -7,18 +7,19 @@
  */
 
 .icon-block {
-  padding: 0 15px;
+  padding: center;
 }
 .icon-block .material-icons {
-	font-size: inherit;
+	font-size: flex;
 }
 .header {
   color: red;
-  padding: 2vw;
+  padding: center;
   font-family: fantasy;
-  font-size: large;
+  font-size: flex;
   font-weight: bolder;
   align-items: center;
+  text-shadow: black;
 }
 .Character {
 color: red;
@@ -28,18 +29,24 @@ outline-width: 1vw;
 }
 .container {
   align-items: center;
-  font-size: inherit;
+  font-size: flex; flex: auto;
 }
 #marvelTitle {
   color: red;
-  font-size: inherit;
+  font-size: 50px; flex: auto;
 }
 #wikiTitle {
   color: red;
+  font-size: 50px; flex: auto;
 }
 #marvelOutput {
  color: ivory;
 }
 #wikiOutput {
   color: ivory;
+}
+body {
+  background-image: url("https://www.wallpaperflare.com/static/929/186/553/avengers-logo-marvel-emblem-wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
