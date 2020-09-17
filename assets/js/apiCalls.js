@@ -95,7 +95,7 @@ let displayCharacter = function (charObj) {
 
   // Display the character information
   let imgFormat = "/portrait_uncanny.jpg";
-  marvelOutput.html('<img src="' + charObj.image + imgFormat + '" /><br />' + charObj.name);
+  marvelOutput.html('<center><img src="' + charObj.image + imgFormat + '" /><br />' + charObj.name + "</center>");
 
   // Store displayed character information
   displayedCharacter.id = charObj.id;
@@ -142,6 +142,15 @@ let randomCharacter = function (callbackFunc) {
 // Event listeners
 
 $("#btnSearch").click(searchCharacter);
+
+// Enter is pressed while in text input
+$("#inputSearch").keyup(function (event) {
+  if (event.which == 13) {
+    // Simulate a button click
+    $("#btnSearch").click();
+  }
+});
+
 $("#btnRandom").click(function () {
   randomCharacter(displayCharacter);
 });
