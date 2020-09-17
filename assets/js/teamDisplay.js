@@ -20,8 +20,6 @@ marvelTeamImages.push(document.getElementById("4"))
 var myTeam = JSON.parse(localStorage.getItem('teamRoster'))  || [];
 
 var displayTeam = function () {
-  console.log("displayTeam");
-  console.log(myTeam);
   for (var i = 0; i < marvelTeamImages.length; i++)
   { 
     if (i < myTeam.length) {
@@ -30,7 +28,6 @@ var displayTeam = function () {
 
     else {
       marvelTeamImages[i].src = "./assets/images/panther.jpeg";
-      console.log(marvelTeamImages[i].src);
     }
     
   }
@@ -39,18 +36,17 @@ var displayTeam = function () {
 
 
 var addCharacter = function (charactertodisplay) {
-  console.log(charactertodisplay);
   var characterObject = {
     "id": charactertodisplay.id, 
     "name": charactertodisplay.name,
     "image": charactertodisplay.image
   };
   myTeam.push(characterObject);
-  console.log(characterObject);
-  console.log(myTeam);
   //marvelTeamImages[myTeam.length-1].src = characterObject.image + "/standard_large.jpg"
   localStorage.setItem("teamRoster", JSON.stringify(myTeam));
   displayTeam();
+  // Disable the select button
+  $("#btnSelect").prop('disabled', true);
   //place character in array 
   //display character in dropdown
 };
@@ -74,16 +70,15 @@ var fillTeam = function () {
   for (var i = myTeam.length; i < marvelTeamImages.length; i++) {
 randomCharacter(addCharacter);
   }
+  $("#btnSelect").prop('disabled', true);
 };
 
 var deleteTeam = function () {
-  console.log("deleteTeam");
-  console.log(myTeam);
   //replace all characters from array with placeholders
   myTeam = [];
-  console.log(myTeam);
   localStorage.setItem("teamRoster", JSON.stringify(myTeam));
   displayTeam();
+  $("#btnSelect").prop('disabled', false);
 };
 
 $("#btnSelect").click(function(){
