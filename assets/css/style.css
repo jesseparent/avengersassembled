@@ -50,3 +50,12 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+/* Override materialize so display doesn't have so much padding */
+.carousel {
+  height: 250px;
+}
+/* Make Carousel links white */
+.carousel-item {
+  color: ivory;
+  text-align: center;
+}
