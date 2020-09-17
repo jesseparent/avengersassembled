@@ -31,6 +31,7 @@ var addCharacter = function (charactertodisplay) {
   };
   myTeam.push(characterObject);
   marvelTeamImages[myTeam.length-1].src = characterObject.image + "/standard_large.jpg"
+  localStorage.setItem("teamRoster", JSON.stringify(myTeam));
 
   //place character in array 
   //display character in dropdown
@@ -42,22 +43,29 @@ var showCharacter = function () {
 
 var deleteCharacter = function () {
   //remove from array
+  $scope.remove = function(item) { 
+    var index = $scope.myTeam.indexOf(item);
+    $scope.myTeam.splice(index, 1);     
+  }
   //replace with placeholder
 };
 
 var fillTeam = function () {
   //for loop
-  for(var i = myTeam.length-1; i < 5; i++) {
+  for (var i = myTeam.length; i < 5 - myTeam.length; i++)
 randomCharacter(addCharacter);
 console.log(i);
-  }
+  
 };
 
 var deleteTeam = function () {
   //replace all characters from array with placeholders
+  myTeam.length = 0;console.log(myTeam);
 };
 
 $("#btnSelect").click(function(){
   addCharacter(displayedCharacter)
 });
 $("#fill-team-button").click(fillTeam);
+$("#removeCharacter").click(deleteCharacter);
+$("delete-team-button").click(deleteTeam);
