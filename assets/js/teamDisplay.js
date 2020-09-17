@@ -56,15 +56,17 @@ var addCharacter = function (charactertodisplay) {
 };
 
 var showCharacter = function () {
+  var indexToShow = parseInt($(this).attr("id")) -10;
+  displayCharacter(myTeam[indexToShow]);
   //load character into calls in body divs
 };
 
 var deleteCharacter = function () {
+  console.log("deleting");
   //remove from array
-  $this.remove = function(item) { 
-    var index = $this.myTeam.indexOf(item);
-    $this.myTeam.splice(index, 1);     
-  }
+  var indextoDelete = parseInt($(this).closest(".img-wrap").attr("id"))-10;
+    myTeam.splice(indextoDelete, 1);     
+    localStorage.setItem("teamRoster", JSON.stringify(myTeam));
   //replace with placeholder
   displayTeam();
 };
@@ -86,10 +88,11 @@ var deleteTeam = function () {
   displayTeam();
 };
 
+$(".img-wrap").click(showCharacter);
 $("#btnSelect").click(function(){
   addCharacter(displayedCharacter)
 });
 $("#fill-team-button").click(fillTeam);
-$("#removeCharacter").click(deleteCharacter);
+$(".close").click(deleteCharacter);
 $("#delete-team-button").click(deleteTeam);
 displayTeam()
