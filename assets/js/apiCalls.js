@@ -75,7 +75,7 @@ let searchedList = [];
 let displayCharacter = function (charObj) {
   // Display loading spinner
   wikiOutput.html('<img src="./assets/images/spinner.gif" />');
-  
+
   // Get wikipedia results
   fetch("https://en.wikipedia.org/w/api.php?origin=*&action=query&list=search&srsearch=" + charObj.name + "%20Marvel%20Comics&utf8=&format=json")
     .then(function (Response) {
@@ -101,6 +101,16 @@ let displayCharacter = function (charObj) {
   displayedCharacter.id = charObj.id;
   displayedCharacter.name = charObj.name;
   displayedCharacter.image = charObj.image;
+
+  // Determine if they can be added to the team
+  if ((myTeam.length === marvelTeamImages.length) || (foundIdInTeamArray(displayedCharacter.id)))
+  {
+    $("#btnSelect").prop('disabled', true);
+  }
+  else
+  {
+    $("#btnSelect").prop('disabled', false);
+  }
 };
 
 // Display the wikipedia contents
@@ -134,9 +144,26 @@ let displayWikiResults = function (wikiListObj) {
 // Pass in a function that will be called with the character object as a parameter after the character has been selected
 let randomCharacter = function (callbackFunc) {
   // Select random character
-  let randIndex = Math.floor(Math.random() * randomCharacters.length);
+  let randIndex = -1;
+  while (randIndex === -1) {
+    randIndex = Math.floor(Math.random() * randomCharacters.length);
 
+    // If this character is already on the saved team, pick another character
+    if (foundIdInTeamArray(randomCharacters[randIndex].id)) {
+      randIndex = -1;
+    }
+  }
   callbackFunc(randomCharacters[randIndex]);
+};
+
+// See if the Character ID already exists in the team array
+let foundIdInTeamArray = function (id) {
+  for (var i = 0; i < myTeam.length; i++) {
+    if (myTeam[i].id === id) {
+      return true;
+    }
+  }
+  return false;
 };
 
 // Event listeners
