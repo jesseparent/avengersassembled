@@ -13,39 +13,39 @@
 </head>
 
 <body>
-  <ul class="collapsible">
+  <ul class="collapsible" style="border: 0px none transparent;">
     <li>
       <div class="collapsible-body center">
         <span>
-          <div class="img-wrap" id="00">
-            <span class="close">&times;</span>
-            <img src="./assets/images/panther.jpeg" id="0" width="140" height="140" />
+          <div class="img-wrap" id="10">
+            <span class="close" id="close0" style="visibility: hidden;">&times;</span>
+            <img class="teamMember" src="./assets/images/panther.jpeg" id="0" width="140" height="140"/>
           </div>
-
           <div class="img-wrap" id="11">
-            <span class="close">&times;</span>
-            <img src="./assets/images/panther.jpeg" id="1" width="140" height="140"/>
+            <span class="close" id="close1" style="visibility: hidden;">&times;</span>
+            <img class="teamMember" src="./assets/images/panther.jpeg" id="1" width="140" height="140"/>
           </div>
-          <div class="img-wrap" id="22">
-            <span class="close">&times;</span>
-            <img src="./assets/images/panther.jpeg" id="2"  width="140" height="140"/>
+          <div class="img-wrap" id="12">
+            <span class="close" id="close2" style="visibility: hidden;">&times;</span>
+            <img class="teamMember" src="./assets/images/panther.jpeg" id="2"  width="140" height="140"/>
           </div>
-          <div class="img-wrap" id="33">
-            <span class="close">&times;</span>
-            <img src="./assets/images/panther.jpeg" id="3"  width="140" height="140"/>
+          <div class="img-wrap" id="13">
+            <span class="close" id="close3" style="visibility: hidden;">&times;</span>
+            <img class="teamMember" src="./assets/images/panther.jpeg" id="3"  width="140" height="140"/>
           </div>
-          <div class="img-wrap">
-            <span class="close" id="44">&times;</span>
-            <img src="./assets/images/panther.jpeg" id="4"  width="140" height="140"/>
+          <div class="img-wrap" id="14">
+            <span class="close" id="close4" style="visibility: hidden;">&times;</span>
+            <img class="teamMember" src="./assets/images/panther.jpeg" id="4"  width="140" height="140"/>
           </div>
+          <br>
           <button class="fill-team" id="fill-team-button">Fill Team</button>
           <button class="delete-team" id="delete-team-button">
             Delete Team
           </button>
         </span>
       </div>
-      <div class="collapsible-header" style="width: 20%; text-align: center; background-color: #4285f4; color: white;">
-        <span>Show Team</span>
+      <div class="collapsible-header" style="background-color: transparent; padding:0; border: 0px none transparent;">
+        <span id="teamDisplay" style="margin: auto; background-color: #875094; padding:10px; border:1px solid #CCC;border-radius: 5px;">Show Team</span>
       </div>
     </li>
   </ul>
@@ -55,7 +55,7 @@
       <form onSubmit="return false;"> 
         <input type="text" id="inputSearch" placeholder="Search for a Character" class="row center" style="color:white"/> <button id="btnSearch"
           type="button">Search</button> <button id="btnRandom" type="button">Random</button>
-          <button id="btnSelect" type="button">Select</button>
+          <button id="btnSelect" type="button" disabled>Select</button>
       </form>
     </div>
     <div class="container"> <div class="row center flex"> 

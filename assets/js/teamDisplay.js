@@ -17,54 +17,59 @@ marvelTeamImages.push(document.getElementById("1"))
 marvelTeamImages.push(document.getElementById("2"))
 marvelTeamImages.push(document.getElementById("3"))
 marvelTeamImages.push(document.getElementById("4"))
-var myTeam = JSON.parse(localStorage.getItem('teamRoster'))  || [];
+var myTeam = JSON.parse(localStorage.getItem('teamRoster')) || [];
 
+// Display the team
 var displayTeam = function () {
-  console.log("displayTeam");
-  console.log(myTeam);
-  for (var i = 0; i < marvelTeamImages.length; i++)
-  { 
+  for (var i = 0; i < marvelTeamImages.length; i++) {
     if (i < myTeam.length) {
       marvelTeamImages[i].src = myTeam[i].image + "/standard_large.jpg";
+      $("#close" + i).css("visibility", "visible");
     }
-
     else {
       marvelTeamImages[i].src = "./assets/images/panther.jpeg";
-      console.log(marvelTeamImages[i].src);
+      $("#close" + i).css("visibility", "hidden");
     }
-    
   }
 }
 
-
+// Toggle the button text that shows the team
+var toggleDisplay = function() {
+  if ($(this).text() === "Show Team") {
+    $(this).text("Hide Team");
+  }
+  else {
+    $(this).text("Show Team");
+  }
+};
 
 var addCharacter = function (charactertodisplay) {
-  console.log(charactertodisplay);
   var characterObject = {
-    "id": charactertodisplay.id, 
+    "id": charactertodisplay.id,
     "name": charactertodisplay.name,
     "image": charactertodisplay.image
   };
   myTeam.push(characterObject);
-  console.log(characterObject);
-  console.log(myTeam);
   //marvelTeamImages[myTeam.length-1].src = characterObject.image + "/standard_large.jpg"
   localStorage.setItem("teamRoster", JSON.stringify(myTeam));
   displayTeam();
+  // Disable the select button
+  $("#btnSelect").prop('disabled', true);
   //place character in array 
   //display character in dropdown
 };
 
 var showCharacter = function () {
+  var indexToShow = parseInt($(this).closest(".img-wrap").attr("id")) - 10;
+  displayCharacter(myTeam[indexToShow]);
   //load character into calls in body divs
 };
 
 var deleteCharacter = function () {
   //remove from array
-  $this.remove = function(item) { 
-    var index = $this.myTeam.indexOf(item);
-    $this.myTeam.splice(index, 1);     
-  }
+  var indextoDelete = parseInt($(this).closest(".img-wrap").attr("id")) - 10;
+  myTeam.splice(indextoDelete, 1);
+  localStorage.setItem("teamRoster", JSON.stringify(myTeam));
   //replace with placeholder
   displayTeam();
 };
@@ -72,24 +77,26 @@ var deleteCharacter = function () {
 var fillTeam = function () {
   //for loop
   for (var i = myTeam.length; i < marvelTeamImages.length; i++) {
-randomCharacter(addCharacter);
+    randomCharacter(addCharacter);
   }
+  $("#btnSelect").prop('disabled', true);
 };
 
 var deleteTeam = function () {
-  console.log("deleteTeam");
-  console.log(myTeam);
   //replace all characters from array with placeholders
   myTeam = [];
-  console.log(myTeam);
   localStorage.setItem("teamRoster", JSON.stringify(myTeam));
   displayTeam();
+  $("#btnSelect").prop('disabled', false);
 };
 
-$("#btnSelect").click(function(){
+$(".teamMember").click(showCharacter);
+$("#btnSelect").click(function () {
   addCharacter(displayedCharacter)
 });
 $("#fill-team-button").click(fillTeam);
-$("#removeCharacter").click(deleteCharacter);
+$(".close").click(deleteCharacter);
 $("#delete-team-button").click(deleteTeam);
-displayTeam()
+$("#teamDisplay").click(toggleDisplay);
+
+displayTeam();
