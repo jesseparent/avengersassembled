@@ -15,11 +15,11 @@
 <body>
   <ul class="collapsible">
     <li>
-      <div class="collapsible-body">
+      <div class="collapsible-body center">
         <span>
           <div class="img-wrap" id="00">
             <span class="close">&times;</span>
-            <img src="./assets/images/panther.jpeg" id="0" width="140" height="140"/>
+            <img src="./assets/images/panther.jpeg" id="0" width="140" height="140" />
           </div>
 
           <div class="img-wrap" id="11">
@@ -44,7 +44,7 @@
           </button>
         </span>
       </div>
-      <div class="collapsible-header" style="width: 20%; text-align: center; background-color: #875094;">
+      <div class="collapsible-header" style="width: 20%; text-align: center; background-color: #4285f4; color: white;">
         <span>Show Team</span>
       </div>
     </li>
@@ -58,20 +58,26 @@
           <button id="btnSelect" type="button">Select</button>
       </form>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col s6" id="marvelTitle">
-          <h2>Character</h2>
-        </div>
-        <div class="col s6" id="wikiTitle">
-          <h2>Wikipedia</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s6" style="height:100px;" id="marvelOutput"></div>
-        <div class="col s6" id="wikiOutput"></div>
-      </div>
-    </div>
+    <div class="container"> <div class="row center flex"> 
+      <div class="col s12 m12 l6" id="marvelTitle">
+      <span class="flow-text"> 
+      <h2>Character</h2> 
+    </span> 
+  </div> 
+  <div class="col s12 m12 l6" id="wikiTitle">
+    <span class="flow-text"> 
+      <h2>Wikipedia</h2> 
+    </span> 
+    </div> 
+  </div> 
+    <div class="row center flex"> 
+      <div class="col s12 m12 l6" id="marvelOutput">
+
+    </div> 
+    <div class="col s12 m12 l6" id="wikiOutput">
+
+    </div> 
+  </div> 
   </div>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
