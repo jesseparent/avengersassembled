@@ -13,7 +13,8 @@
 	font-size: flex;
 }
 .header {
-  color: red;
+  color: #990000ff;
+  text-shadow: 2px 2px 9900005b;
   padding: center;
   font-family: fantasy;
   font-size: flex;
@@ -22,7 +23,7 @@
   text-shadow: black;
 }
 .Character {
-color: red;
+color: #990000ff;
 font-weight: bold; 
 background-color: white;
 outline-width: 1vw;
@@ -32,19 +33,23 @@ outline-width: 1vw;
   font-size: flex; flex: auto;
 }
 #marvelTitle {
-  color: red;
+  color: #990000ff;
   font-size: 50px; flex: auto;
 }
 #wikiTitle {
-  color: red;
+  color: #990000ff;
   font-size: 50px; flex: auto;
 }
+
 #marvelOutput {
- color: ivory;
+ color: ivory; 
 }
+
 #wikiOutput {
   color: black;
+  
 }
+
 body {
   background-image: url("https://www.wallpaperflare.com/static/929/186/553/avengers-logo-marvel-emblem-wallpaper.jpg");
   background-repeat: no-repeat;
