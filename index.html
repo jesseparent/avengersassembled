@@ -53,32 +53,18 @@
   <div class="row center">
     <h1 class="header" style="font-size: 60px">AVENGERS ASSEMBLE !!</h1>
       <form onSubmit="return false;"> 
-        <input type="text" id="inputSearch" placeholder="Search for a Character" class="row center" style="color:white"/> <button id="btnSearch"
-          type="button">Search</button> <button id="btnRandom" type="button">Random</button>
-          <button id="btnSelect" type="button" disabled>Select</button>
+        <input type="text" id="inputSearch" placeholder="Search for a Character" class="row center" style="color:white"/> 
+        <button id="btnSearch" type="button" a class="waves-effect #01579b light-blue darken-4 btn">Search</a></button> 
+        <button id="btnRandom" type="button" a class="waves-effect #01579b light-blue darken-4 btn">Random</a></button>
+          <button id="btnSelect" type="button" a class="waves-effect #01579b light-blue darken-4 btn" disabled >Add Character</a></button>
       </form>
     </div>
-    <div class="container"> <div class="row center flex"> 
-      <div class="col s12 m12 l6" id="marvelTitle">
-      <span class="flow-text"> 
-      <h2>Character</h2> 
-    </span> 
-  </div> 
-  <div class="col s12 m12 l6" id="wikiTitle">
-    <span class="flow-text"> 
-      <h2>Wikipedia</h2> 
-    </span> 
-    </div> 
-  </div> 
-    <div class="row center flex"> 
-      <div class="col s12 m12 l6" id="marvelOutput">
+    <div class="row">
+      <div class="col m6 pull-6" style="align-items: center" id="marvelOutput"><span class="flow-text"></span></div>
+      <div class="col m6 push-6" id="wikiOutput"><span class="flow-text"></span></div>
+    </div>
 
-    </div> 
-    <div class="col s12 m12 l6" id="wikiOutput">
 
-    </div> 
-  </div> 
-  </div>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./assets/js/randomCharacters.js"></script>
