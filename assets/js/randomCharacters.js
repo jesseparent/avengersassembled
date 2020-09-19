@@ -1,3 +1,4 @@
+// Curated list of characters for the random button feature
 let randomCharacters = [
   { id: 1009608, name: "Spider-Woman (Jessica Drew)", image: "http://i.annihil.us/u/prod/marvel/i/mg/b/50/5265479097743" },
   { id: 1009610, name: "Spider-Man", image: "http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b" },
