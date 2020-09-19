@@ -95,7 +95,7 @@ let displayCharacter = function (charObj) {
 
   // Display the character information
   let imgFormat = "/portrait_uncanny.jpg";
-  marvelOutput.html('<center><img src="' + charObj.image + imgFormat + '" /><br />' + charObj.name + "</center>");
+  marvelOutput.html('<img src="' + charObj.image + imgFormat + '" /><br />' + charObj.name);
 
   // Store displayed character information
   displayedCharacter.id = charObj.id;
@@ -132,6 +132,7 @@ let displayWikiResults = function (wikiListObj) {
     })
     .then(function (wikiParseObj) {
       wikiOutput.html(wikiParseObj.parse.text["*"] // Get text
+        .replace('<table class="infobox" style="width:22em;width: 24em; background: #f2f9ff;">', '<table class="infobox">')
         .replace('src="//', 'src="https://') // Make sure images display
         .replace(/a href="\//g, 'a target="_blank" href="https://en.wikipedia.org/')); // Make links open in new browser tab/window
     })

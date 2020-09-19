@@ -10,7 +10,7 @@
   padding: center;
 }
 .icon-block .material-icons {
-	font-size: flex;
+  font-size: flex;
 }
 .header {
   color: #990000ff;
@@ -23,31 +23,33 @@
   text-shadow: black;
 }
 .Character {
-color: #990000ff;
-font-weight: bold; 
-background-color: white;
-outline-width: 1vw;
+  color: #990000ff;
+  font-weight: bold;
+  background-color: white;
+  outline-width: 1vw;
 }
 .container {
   align-items: center;
-  font-size: flex; flex: auto;
+  font-size: flex;
+  flex: auto;
 }
 #marvelTitle {
   color: #990000ff;
-  font-size: 50px; flex: auto;
+  font-size: 50px;
+  flex: auto;
 }
 #wikiTitle {
   color: #990000ff;
-  font-size: 50px; flex: auto;
+  font-size: 50px;
+  flex: auto;
 }
 
 #marvelOutput {
- color: ivory; 
+  color: ivory;
 }
 
 #wikiOutput {
   color: black;
-  
 }
 
 body {
@@ -63,4 +65,20 @@ body {
 .carousel-item {
   color: ivory;
   text-align: center;
+}
+
+.infobox {
+    width: 24em;
+    background: #f2f9ff;
+}
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+  .infobox {
+    margin: 0 auto;    
+  }
+
+  #wikiOutput {
+    text-align: center;
+  }
 }
