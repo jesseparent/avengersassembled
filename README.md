@@ -37,11 +37,11 @@ If you'd like to contribute, please fork the repository and use a feature branch
 - Issue tracker: https://github.com/jesseparent/avengersassembled/issues/
 
 ## Screenshots
-- Desktop screenshot of the final work: 
+- Desktop screenshot of the final work:<br /> 
 ![Image](./screenshots/screenshot_large.jpg)
 
-- Mobile screenshot of the final work: 
+- Mobile screenshot of the final work:<br />
 ![Image](./screenshots/screenshot_mobile.jpg)
 
-- Animated screenshot showing all functionality: 
+- Animated screenshot showing all functionality:<br /> 
 ![Image](./screenshots/screenshot_animated.gif)
